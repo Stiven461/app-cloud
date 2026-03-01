@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Cloud - 3 Funcionalidades</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 APP CLOUD</h1>
+        <p class="subtitle">3 Funcionalidades - Trabajo en equipo</p>
+
+        <!-- Estado del servidor -->
+        <div id="status" class="status-card">
+            Verificando conexión con el servidor...
+        </div>
+
+        <div class="features-grid">
+            <!-- FEATURE 1: Registro -->
+            <div class="card">
+                <h2>📝 FEATURE 1</h2>
+                <h3>Registro con Validaciones</h3>
+                <p class="feature-desc">Validación de nombre, email y edad</p>
+                
+                <form id="formRegistro">
+                    <div class="form-group">
+                        <label>Nombre completo:</label>
+                        <input type="text" id="nombre" placeholder="Mínimo 3 caracteres" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" id="email" placeholder="correo@ejemplo.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Edad:</label>
+                        <input type="number" id="edad" placeholder="Mayor o igual a 18" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Registrarse</button>
+                </form>
+                
+                <div id="resultadoRegistro" class="resultado"></div>
+            </div>
+
+            <!-- FEATURE 2: Calculadora -->
+            <div class="card">
+                <h2>🧮 FEATURE 2</h2>
+                <h3>Calculadora Financiera</h3>
+                <p class="feature-desc">Interés compuesto: M = C(1 + i)^n</p>
+                
+                <form id="formCalculadora">
+                    <div class="form-group">
+                        <label>Capital inicial ($):</label>
+                        <input type="number" id="capital" placeholder="Ej: 1000000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Tasa de interés (% anual):</label>
+                        <input type="number" id="tasa" placeholder="Ej: 5" step="0.1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Tiempo (años):</label>
+                        <input type="number" id="tiempo" placeholder="Ej: 3" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Calcular</button>
+                </form>
+                
+                <div id="resultadoCalculadora" class="resultado"></div>
+            </div>
+
+            <!-- FEATURE 3: Integración (Info de la API) -->
+            <div class="card">
+                <h2>🔌 FEATURE 3</h2>
+                <h3>Frontend + Fetch</h3>
+                <p class="feature-desc">Conexión con el backend</p>
+                
+                <div class="info-box">
+                    <h4>Endpoints disponibles:</h4>
+                    <ul id="endpointsList">
+                        <li>Cargando...</li>
+                    </ul>
+                </div>
+                
+                <button id="btnTest" class="btn-secondary">Probar conexión</button>
+                <div id="resultadoTest" class="resultado"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
