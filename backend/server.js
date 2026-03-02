@@ -24,3 +24,14 @@ app.get('/api/status', (req, res) => {
         ]
     });
 });
+
+// Servir el frontend
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+
+// Iniciar servidor
+app.listen(PORT, () => {
+    console.log(`✅ Servidor corriendo en puerto ${PORT}`);
+    console.log(`📌 Integrante 2: Feature de Calculadora activa`);
+});
