@@ -65,3 +65,10 @@ try {
     resultado.className = 'resultado error';
 }
 
+document.getElementById('formCalculadora')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const resultado = document.getElementById('resultadoCalculadora');
+    resultado.innerHTML = '<div class="loader"></div> Calculando...';
+    resultado.className = 'resultado';
+});
