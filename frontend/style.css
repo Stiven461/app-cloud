@@ -71,3 +71,23 @@ h1 {
 .card:hover {
     transform: translateY(-5px);
 }
+
+.card h2 {
+    color: #667eea;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.feature-desc {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
