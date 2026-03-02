@@ -106,3 +106,29 @@ try {
     resultado.innerHTML = '❌ Error de conexión';
     resultado.className = 'resultado error';
 }
+
+document.getElementById('btnTest')?.addEventListener('click', async () => {
+    const resultado = document.getElementById('resultadoTest');
+    resultado.innerHTML = '<div class="loader"></div> Probando conexión...';
+    resultado.className = 'resultado';
+    
+    try {
+        const response = await fetch(`${API_URL}/api/status`);
+        const data = await response.json();
+        
+        resultado.innerHTML = `
+            ✅ Conexión exitosa<br>
+            📡 ${data.message}<br>
+            🔌 Features disponibles: ${data.features.length}
+        `;
+        resultado.className = 'resultado success';
+    } catch (error) {
+        resultado.innerHTML = '❌ No se pudo conectar al backend';
+        resultado.className = 'resultado error';
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    checkServerStatus();
+    console.log('✅ Feature 3: Frontend cargado correctamente');
+});
