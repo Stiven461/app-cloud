@@ -19,3 +19,9 @@ async function checkServerStatus() {
         statusDiv.className = 'status-card offline';
     }
 }
+
+const endpointsList = document.getElementById('endpointsList');
+if (endpointsList && data.features) {
+    endpointsList.innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
+}
+
