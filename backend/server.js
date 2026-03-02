@@ -7,3 +7,9 @@ const PORT = process.env.PORT || 4000;
 // Middlewares
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Importar features
+const setupCalculadoraFeature = require('./features/feature-calculadora');
+
+// Configurar features
+setupCalculadoraFeature(app);
