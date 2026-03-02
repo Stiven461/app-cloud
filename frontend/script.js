@@ -33,3 +33,35 @@ document.getElementById('formRegistro')?.addEventListener('submit', async (e) =>
     resultado.className = 'resultado';
 });
 
+const datos = {
+    nombre: document.getElementById('nombre').value,
+    email: document.getElementById('email').value,
+    edad: document.getElementById('edad').value
+};
+
+try {
+    const response = await fetch(`${API_URL}/api/registro`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok) {
+        resultado.innerHTML = `
+            <strong>✅ ${data.mensaje}</strong><br>
+            👤 ${data.usuario.nombre}<br>
+            📧 ${data.usuario.email}<br>
+            🎂 ${data.usuario.edad} años
+        `;
+        resultado.className = 'resultado success';
+    } else {
+        resultado.innerHTML = `❌ ${data.error}`;
+        resultado.className = 'resultado error';
+    }
+} catch (error) {
+    resultado.innerHTML = '❌ Error de conexión';
+    resultado.className = 'resultado error';
+}
+
