@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 4000;
 
 // Importar features (esto lo harán todos)
 const setupRegistroFeature = require('./features/feature-registro');
+const setupCalculadoraFeature = require('./features/feature-calculadora');
+
 
 // Middlewares
 app.use(express.json());
@@ -12,6 +14,7 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 
 // Configurar features
 setupRegistroFeature(app);  // <-- SOLO TU FEATURE POR AHORA
+setupCalculadoraFeature(app);
 
 // Endpoint de prueba / status
 app.get('/api/status', (req, res) => {

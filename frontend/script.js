@@ -101,7 +101,7 @@ document.getElementById('formCalculadora')?.addEventListener('submit', async (e)
     };
 
     try {
-        const response = await fetch(`${API_URL}/api/interes-compuesto`, {
+        const response = await fetch(`/api/interes-compuesto`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(datos)
@@ -142,7 +142,7 @@ document.getElementById('btnTest')?.addEventListener('click', async () => {
     resultado.className = 'resultado';
     
     try {
-        const response = await fetch(`${API_URL}/api/status`);
+        const response = await fetch(`/api/status`);
         const data = await response.json();
         
         resultado.innerHTML = `
