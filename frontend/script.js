@@ -25,3 +25,11 @@ if (endpointsList && data.features) {
     endpointsList.innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
 }
 
+document.getElementById('formRegistro')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const resultado = document.getElementById('resultadoRegistro');
+    resultado.innerHTML = '<div class="loader"></div> Procesando...';
+    resultado.className = 'resultado';
+});
+
