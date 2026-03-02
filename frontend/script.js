@@ -72,3 +72,37 @@ document.getElementById('formCalculadora')?.addEventListener('submit', async (e)
     resultado.innerHTML = '<div class="loader"></div> Calculando...';
     resultado.className = 'resultado';
 });
+
+const datos = {
+    capital: document.getElementById('capital').value,
+    tasa: document.getElementById('tasa').value,
+    tiempo: document.getElementById('tiempo').value
+};
+
+try {
+    const response = await fetch(`${API_URL}/api/interes-compuesto`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok) {
+        resultado.innerHTML = `
+            <strong>✅ ${data.mensaje}</strong><br>
+            💰 Capital inicial: $${data.datos.capital_inicial.toLocaleString()}<br>
+            📊 Tasa: ${data.datos.tasa_porcentaje}% anual<br>
+            ⏱️ Tiempo: ${data.datos.tiempo_anios} años<br>
+            <strong>💰 Monto final: $${data.datos.monto_final.toLocaleString()}</strong><br>
+            📈 Ganancia: $${data.datos.ganancia.toLocaleString()}
+        `;
+        resultado.className = 'resultado success';
+    } else {
+        resultado.innerHTML = `❌ ${data.error}`;
+        resultado.className = 'resultado error';
+    }
+} catch (error) {
+    resultado.innerHTML = '❌ Error de conexión';
+    resultado.className = 'resultado error';
+}
